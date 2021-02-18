@@ -38,18 +38,16 @@ class StorageCapacity {
 
   static String searchCapacity(double totalCapacity) {
     var i = _capacities.length ~/ 2;
-    var changeCapacity = true;
-
-    while (changeCapacity) {
+    var count = 0;
+    for (count = 0; count < _capacities.length; count++) {
+      var difference = totalCapacity - _capacities[count];
       var difference = totalCapacity - _capacities[i];
-      if (difference < 0 && difference < -4) {
+      if ((difference <= 0)) {
         i = i - 1;
-      } else if ((difference < 0 && difference > -4)) {
-        changeCapacity = false;
-      }else if(difference>0){
-        i=i+1;
+        break;
       }
     }
     return _capacities[i].toString();
+    return _capacities[count].toString();
   }
 }
