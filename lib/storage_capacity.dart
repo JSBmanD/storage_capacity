@@ -37,17 +37,13 @@ class StorageCapacity {
   static List<double> _capacities = [16, 32, 64, 128, 256, 512, 1024];
 
   static String searchCapacity(double totalCapacity) {
-    var i = _capacities.length ~/ 2;
     var count = 0;
     for (count = 0; count < _capacities.length; count++) {
       var difference = totalCapacity - _capacities[count];
-      var difference = totalCapacity - _capacities[i];
       if ((difference <= 0)) {
-        i = i - 1;
         break;
       }
     }
-    return _capacities[i].toString();
     return _capacities[count].toString();
   }
 }
